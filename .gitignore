@@ -1,0 +1,53 @@
+# Data
+# (patient images and large datasets)
+data/
+*.zip
+*.tar.gz
+*.tar
+
+# Model Checkpoints
+# Checkpoints can be hundreds of MB — share via Google Drive or HuggingFace Hub
+models/
+*.pth
+*.pt
+*.ckpt
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.venv/
+venv/
+env/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Experiment artifacts
+# Weights & Biases local runs (if added later)
+wandb/
+
+# Secrets
+.env
+*.key
+secrets.yaml
