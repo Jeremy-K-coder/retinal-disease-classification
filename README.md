@@ -96,20 +96,20 @@ Sharmin et al. (2024): Images collected from **Anwara Hamida Eye Hospital** and 
 **Class distribution:**
 
 ![Class Distribution](figures/class_distribution.png)
-*Class distribution across the 10 disease categories. Populated after EDA (Notebook 01).*
+*Class distribution across the 10 disease categories. Populated after EDA.*
 
 | Class | Disease | Images |
 |:---|:---|:---|
-| 0 | Diabetic Retinopathy | — |
-| 1 | Glaucoma | — |
-| 2 | Disc Edema | — |
-| 3 | Macular Scar | — |
-| 4 | Myopia | — |
-| 5 | Retinal Detachment | — |
-| 6 | Retinitis Pigmentosa | — |
-| 7 | Pterygium | — |
-| 8 | Central Serous Chorioretinopathy | — |
-| 9 | Healthy | — |
+| 0 | Diabetic Retinopathy | 1,509 |
+| 1 | Glaucoma | 1,352 |
+| 2 | Disc Edema | 127 |
+| 3 | Macular Scar | 444 |
+| 4 | Myopia | 500 |
+| 5 | Retinal Detachment | 125 |
+| 6 | Retinitis Pigmentosa | 139 |
+| 7 | Pterygium | 18 |
+| 8 | Central Serous Chorioretinopathy | 101 |
+| 9 | Healthy | 1,024 |
 
 *Exact counts populated after EDA (01_EDA.ipynb).*
 
