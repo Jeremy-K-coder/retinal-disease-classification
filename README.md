@@ -170,14 +170,14 @@ retinal-disease-classification/
 ## Methodology
 
 ### Preprocessing
-Fundus images from clinical settings often suffer from variable illumination, low contrast, and lens artefacts. The preprocessing pipeline addresses this with:
-- **Green channel extraction:** the green channel of a fundus image carries the highest contrast for retinal vessels and lesions
-- **CLAHE (Contrast Limited Adaptive Histogram Equalization):** enhances local contrast without amplifying noise
-- **Resizing** to 224×224 pixels for compatibility with pretrained architectures
-- **Normalisation** using ImageNet mean and standard deviation (for transfer learning compatibility)
-
+EDA revealed that images in this dataset suffer from variable illumination across classes because brightness and contrast distributions differ systematically between disease categories, consistent with multi-protocol imaging across two hospital sites. The preprocessing pipeline is designed to standardise inputs while preserving clinically relevant retinal features.
+ 
+- **Green channel extraction:** Within-disc contrast analysis (background masked via Otsu thresholding + ellipse fitting) measured Red: 29.00 vs Green: 22.98 std dev within the fundus disc. Despite Red's higher raw value, visual inspection confirmed the red channel is overexposed at the optic disc, washing out haemorrhages and vessel detail. The green channel preserves these features and is the established choice in ophthalmology AI literature.
+- **CLAHE (clipLimit=2.0, tileGridSize=8×8)** adds +4.70 std points of local within-disc contrast over raw green, bringing Green+CLAHE (27.68) within 1.32 points of raw Red (29.00) while enhancing local retinal microstructure rather than global luminance. This partially mitigates the inter-class brightness variability identified in EDA.
+- **Resizing to 224×224:** Standard input size for ImageNet pretrained architectures. EDA confirmed images vary in resolution across classes; resizing is applied after CLAHE to avoid interpolation artefacts on enhanced features.
+- **Normalisation** using ImageNet mean [0.485, 0.456, 0.406] and std [0.229, 0.224, 0.225], applied after stacking the single CLAHE-processed channel into 3 channels, as required for pretrained EfficientNet-B0 and ConvNeXt-Tiny weight compatibility.
 ![Preprocessing Comparison](figures/preprocessing_comparison.png)
-*Left to right: original fundus image, green channel extraction, CLAHE-enhanced output.*
+*Left to right: original fundus image, red channel (overexposed at disc), green channel, green + CLAHE (used in pipeline).
 
 ### Baseline Model
 A simple custom CNN trained from scratch serves as the performance floor. This establishes what is achievable without transfer learning and provides a meaningful point of comparison.
