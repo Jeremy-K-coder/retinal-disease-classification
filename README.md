@@ -1,8 +1,8 @@
-# **RETINAL DISEASE CLASSIFICATION FROM FUNDUS IMAGES**
-## MSB7216: Deep Learning for Health Data Final Examination Project
-### NAME: **`Kirunda Jeremy Menya`**
-### REG NO.: **`2025/HD07/25995U`**
-### STUDENT NO.: **`2500725995`**
+## **RETINAL DISEASE CLASSIFICATION FROM FUNDUS IMAGES**
+### MSB7216: Deep Learning for Health Data Final Examination Project
+#### NAME: **`Kirunda Jeremy Menya`**
+#### REG NO.: **`2025/HD07/25995U`**
+#### STUDENT NO.: **`2500725995`**
 
 *Makerere University | May 2026*
 
@@ -216,15 +216,13 @@ All runs use identical: train/val/test splits, image preprocessing, data augment
 ![Training Curves](figures/training_curves/all_runs_comparison.png)
 *Training and validation loss curves across all four experimental runs.*
 
-*(Metrics populated after experiments; 03_Architecture_Comparison)*
-
-| Architecture | Loss | Accuracy | Macro F1 | Clinical Cost ↓ |
-|:---|:---|:---|:---|:---|
-| Baseline CNN | Cross-Entropy | — | — | — |
-| EfficientNet-B0 | Weighted CE | — | — | — |
-| EfficientNet-B0 | Focal Loss | — | — | — |
-| ConvNeXt-Tiny | Weighted CE | — | — | — |
-| ConvNeXt-Tiny | Focal Loss | — | — | — |
+| Architecture | Loss | Accuracy | Macro F1 | Clinical Cost |
+|:---|:---|:---:|:---:|:---:|
+| ConvNeXt-Tiny ** | Weighted CE | 0.7553 | 0.7783 | 421.0 |
+| EfficientNet-B0 | Weighted CE | 0.7690 | 0.7647 | 377.0 |
+| ConvNeXt-Tiny | Focal | 0.7403 | 0.7531 | 414.0 |
+| EfficientNet-B0 | Focal | 0.4757 | 0.5037 | 850.0 |
+| Baseline CNN | Cross-Entropy | 0.3883 | 0.4090 | 1131.0 |
 
 ![Confusion Matrix](figures/confusion_matrix_best.png)
 *Confusion matrix of the best-performing model on the held-out test set.*
