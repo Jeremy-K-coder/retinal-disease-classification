@@ -234,7 +234,7 @@ All runs use identical: train/val/test splits, image preprocessing, data augment
 Grad-CAM (Gradient-weighted Class Activation Mapping) is applied to both architectures to visualise which regions of a fundus image influence the model's prediction.
 
 ![GradCAM Comparison](figures/gradcam/gradcam_architecture_comparison.png)
-*Grad-CAM overlays from EfficientNet-B0 (top) and ConvNeXt-Tiny (bottom) for matched correct predictions across selected disease classes.*
+*Grad-CAM overlays from EfficientNet-B0 (Middle) and ConvNeXt-Tiny (Right) for matched correct predictions across selected disease classes.*
 
 Rather than using Grad-CAM as a visual checkbox, this project uses it analytically:
 - **Cross-architecture comparison:** Do EfficientNet-B0 and ConvNeXt-Tiny attend to the same retinal structures for the same prediction?
